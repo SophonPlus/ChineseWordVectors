@@ -35,14 +35,14 @@ words, embeddings = load_embeddings(folder_path)
 
 ## 类型、维度、词（字）典
 
-| 名称 | 类型 | 维度 | 词汇总数 | 中文 | 英文 | 数字 | 其他 |
-| ---- | ---- | ---- | -------- | ---- | ---- | ---- | ---- |
-| facebook_cc | 词 | 300 | 200w | 156w | 27w | 13w | 3.3w |
-| facebook_wiki | 词 | 300 | 33w | 14w | 17w | 0 | 1.6w |
-| sjl_weixin | 词 | 256 | 35w | 25w | 6w | 2w | 0.3w |
-| polyglot_wiki | 词 | 64 | 10w | 6w | 3w | 0 | 0.2w |
-| polyglot_wiki | 字 | 64 | 10w | 1.2w | 7.8w | 0 | 0.9w |
-| novel_baidubaike_news | 词 | 64 | 611w | 611w | 0 | 0 | 0 |
+| 名称 | 类型 | 维度 | 词汇总数 | 中文 | 英文 | 数字 | 其他 | 语料 |
+| ---- | ---- | ---- | -------- | ---- | ---- | ---- | ---- | ---- |
+| facebook_cc | 词 | 300 | 200w | 156w | 27w | 13w | 3.3w |  [Common Crawl](http://commoncrawl.org/) <br /> [Wikipedia](https://www.wikipedia.org/) |
+| facebook_wiki | 词 | 300 | 33w | 14w | 17w | 0 | 1.6w | [Wikipedia](https://www.wikipedia.org/) |
+| sjl_weixin | 词 | 256 | 35w | 25w | 6w | 2w | 0.3w | 800 万微信公众号文章 <br /> 总词数达 650 亿 |
+| polyglot_wiki | 词 | 64 | 10w | 6w | 3w | 0 | 0.2w | [Wikipedia](https://www.wikipedia.org/) |
+| polyglot_wiki | 字 | 64 | 10w | 1.2w | 7.8w | 0 | 0.9w | [Wikipedia](https://www.wikipedia.org/) |
+| novel_baidubaike_news | 词 | 64 | 611w | 611w | 0 | 0 | 0 | 小说 90G 左右 <br /> 百度百科 800w+ 条, 20G+ <br /> 搜狐新闻 400w+ 条, 12G+ |
 
 ## 简繁、全/半角、大小写、特殊符号
 
@@ -57,10 +57,10 @@ words, embeddings = load_embeddings(folder_path)
 
 ## 作者、语料、（分词及训练）工具 以及 训练参数
 
-| 名称 | 作者 | 语料 | 分词工具 | 训练工具 | 训练参数 |
-| ---- | ---- | ---- | ---- | ---- | ---- |
-| facebook_cc | [Facebook](https://fasttext.cc/docs/en/crawl-vectors.html)| [Common Crawl](http://commoncrawl.org/) <br /> [Wikipedia](https://www.wikipedia.org/) | [Stanford word segmenter](https://nlp.stanford.edu/software/segmenter.html) | [fastText](https://fasttext.cc/) | CBOW with position-weights, character n-grams of length 5 <br /> window of size 5 and 10 negatives |
-| facebook_wiki | [Facebook](https://fasttext.cc/docs/en/pretrained-vectors.html) | [Wikipedia](https://www.wikipedia.org/) | | [fastText](https://fasttext.cc/) | 论文 [Enriching Word Vectors with Subword Information](https://arxiv.org/abs/1607.04606) 中的默认设置 |
-| sjl_weixin | [苏剑林](https://kexue.fm/archives/4304) | 800 万微信公众号文章 <br /> 总词数达 650 亿 | [Jieba](https://github.com/fxsjy/jieba) | [Gensim](https://radimrehurek.com/gensim/) | Skip-Gram, Huffman Softmax, 窗口大小 10, 最小词频 64, 迭代 10 次 |
-| polyglot_wiki | [Polyglot](https://sites.google.com/site/rmyeid/projects/polyglot) | [Wikipedia](https://www.wikipedia.org/) | | [word2embeddings](https://bitbucket.org/aboSamoor/word2embeddings) <br /> [polyglot2](http://polyglot2.readthedocs.org/) |
-| novel_baidubaike_news | [dada](https://weibo.com/p/23041816d74e01f0102x77v) | 小说 90G 左右 <br /> 百度百科 800w+ 条, 20G+ <br /> 搜狐新闻 400w+ 条, 12G+ | [Jieba](https://github.com/fxsjy/jieba)| [Gensim](https://radimrehurek.com/gensim/) |  window=5, min_count=5, 其他为 Word2Vec 默认参数 |
+| 名称 | 作者 | 分词工具 | 训练工具 | 训练参数 |
+| ---- | ---- | ---- | ---- | ---- |
+| facebook_cc | [Facebook](https://fasttext.cc/docs/en/crawl-vectors.html)| [Stanford word segmenter](https://nlp.stanford.edu/software/segmenter.html) | [fastText](https://fasttext.cc/) | CBOW with position-weights, character n-grams of length 5 <br /> window of size 5 and 10 negatives |
+| facebook_wiki | [Facebook](https://fasttext.cc/docs/en/pretrained-vectors.html) | | [fastText](https://fasttext.cc/) | 论文 [Enriching Word Vectors with Subword Information](https://arxiv.org/abs/1607.04606) 中的默认设置 |
+| sjl_weixin | [苏剑林](https://kexue.fm/archives/4304) | [Jieba](https://github.com/fxsjy/jieba) | [Gensim](https://radimrehurek.com/gensim/) | Skip-Gram, Huffman Softmax, 窗口大小 10, 最小词频 64, 迭代 10 次 |
+| polyglot_wiki | [Polyglot](https://sites.google.com/site/rmyeid/projects/polyglot) | | [word2embeddings](https://bitbucket.org/aboSamoor/word2embeddings) <br /> [polyglot2](http://polyglot2.readthedocs.org/) |
+| novel_baidubaike_news | [dada](https://weibo.com/p/23041816d74e01f0102x77v) | [Jieba](https://github.com/fxsjy/jieba)| [Gensim](https://radimrehurek.com/gensim/) |  window=5, min_count=5, 其他为 Word2Vec 默认参数 |
