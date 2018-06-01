@@ -43,6 +43,8 @@ words, embeddings = load_embeddings(folder_path)
 | polyglot_wiki | 词 | 64 | 10w | 6w | 3w | 0 | 0.2w | [Wikipedia](https://www.wikipedia.org/) |
 | polyglot_wiki | 字 | 64 | 10w | 1.2w | 7.8w | 0 | 0.9w | [Wikipedia](https://www.wikipedia.org/) |
 | novel_baidubaike_news | 词 | 64 | 611w | 611w | 0 | 0 | 0 | 小说 90G 左右 <br /> 百度百科 800w+ 条, 20G+ <br /> 搜狐新闻 400w+ 条, 12G+ |
+| sougou_news | 词 | 200 | 未统计 | 未统计 | 0 | 0 | 0 | 搜狗8个行业各1990篇新闻 <br /> 按行业分别训练 <br /> 包括财经、IT、健康、体育、旅游、教育、招聘、文化、军事 |
+| sougou_news | 字 | 200 | 未统计 | 未统计 | 0 | 0 | 0 | 搜狗8个行业各1990篇新闻 <br /> 按行业分别训练（同上） |
 
 ## 简繁、全/半角、大小写、特殊符号
 
@@ -54,6 +56,7 @@ words, embeddings = load_embeddings(folder_path)
 | polyglot_wiki | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ | ✘ | 未知 <UNK\>, 句首 <S\>, 句末 </S\>, 补全 <PAD\> |
 | polyglot_wiki | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ | ✘ | 未知 <UNK\>, 句首 <S\>, 句末 </S\>, 补全 <PAD\> |
 | novel_baidubaike_news | ✔ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | |
+| sougou_news | ✔ | ✘ | ✔ | ✔ | ✘ | ✘ | ✘ | 换行 \n |
 
 ## 作者、语料、（分词及训练）工具 以及 训练参数
 
@@ -64,3 +67,4 @@ words, embeddings = load_embeddings(folder_path)
 | sjl_weixin | [苏剑林](https://kexue.fm/archives/4304) | [Jieba](https://github.com/fxsjy/jieba) | [Gensim](https://radimrehurek.com/gensim/) | Skip-Gram, Huffman Softmax, 窗口大小 10, 最小词频 64, 迭代 10 次 |
 | polyglot_wiki | [Polyglot](https://sites.google.com/site/rmyeid/projects/polyglot) | | [word2embeddings](https://bitbucket.org/aboSamoor/word2embeddings) <br /> [polyglot2](http://polyglot2.readthedocs.org/) |
 | novel_baidubaike_news | [dada](https://weibo.com/p/23041816d74e01f0102x77v) | [Jieba](https://github.com/fxsjy/jieba)| [Gensim](https://radimrehurek.com/gensim/) |  window=5, min_count=5, 其他为 Word2Vec 默认参数 |
+| sougou_news | [dada]http://www.pudn.com/Download/item/id/1036884.html) | [Jieba](https://github.com/fxsjy/jieba)| [Gensim](https://radimrehurek.com/gensim/) |  window=9, min_count=10, skip-gram,negative=8, hs=1, 其他为 Word2Vec 默认参数 |
